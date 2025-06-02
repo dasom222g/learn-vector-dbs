@@ -4,7 +4,6 @@ from langchain_community.document_loaders import TextLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain_text_splitters import CharacterTextSplitter, RecursiveCharacterTextSplitter
-from openai import vector_stores
 
 load_dotenv()
 
@@ -21,7 +20,7 @@ if __name__ == '__main__':
     chunk_size = 1000
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, separators=["\n\n", "\n", " ", ""], chunk_overlap=0) # 텍스트 분할 객체
     chunked_docs = text_splitter.split_documents(document) # 청킹한 데이터
-    print(chunked_docs)
+    # print(chunked_docs)
 
     # for i, data in enumerate(chunked_docs):
     #     print(f'{i + 1}번째 청크 사이즈: {len(data.page_content)}')
